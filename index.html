@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Single applet + API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.geogebra.org/apps/deployggb.js"
+    ></script>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"
+      integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB"
+      crossorigin="anonymous"
+    />
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+      integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"
+      integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+
+    <script
+      defer="defer"
+      src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+      crossorigin="anonymous"
+      onload='renderMathInElement(document.body,
+        {delimiters:[ {left: "$$", right: "$$" , display: true}, 
+                      {left: "$" , right: "$" , display: false}, 
+                      {left: "\\(" , right: "\\)" , display: false}, 
+                      {left: "\\[" , right: "\\]" , display: true} 
+                      ]
+        });'
+    ></script>
+    <link rel="stylesheet" href="https://unpkg.com/latex.css/style.min.css" />
+  </head>
+
+  <body>
+    <p>
+      <span style="font-size: 24px;"
+        >Exame Final Nacional Matemática A 2021 -Fase 1</span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>1.1. </strong>Qual das equações seguintes define uma reta
+          perpendicular à reta EF e que passa no ponto E?
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong style="">(A) </strong>$(x,y,z)=(7,-3,-3)+k(2,-3,0),
+          k\in\mathbb R$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>(B)</strong>&nbsp;$(x,y,z)=(7,2,15)+k(0,3,-3), k\in\mathbb
+          R$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>(C)</strong>&nbsp;$(x,y,z)=(7,-10,3)+k(0,3,3), k\in\mathbb
+          R$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>(D)</strong>&nbsp;$(x,y,z)=(7,2,15)+k(2,0,-3), k\in\mathbb
+          R$</span
+        ><br
+      /></span>
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>3.</strong>&nbsp;Numa escola frequentada por estudantes
+          portugueses e estrangeiros, 60% dos alunos são raparigas e 15% são
+          rapazes estrangeiros.
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;">
+          Escolheu-se, ao acaso, um aluno dessa escola e verificou-se que era um
+          rapaz.
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;">
+          Qual é a probabilidade de ele ser português?</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(A)</strong> 45% </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(B)</strong> 50% </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(C)</strong> 57,5% </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(D)</strong> 62,5%</span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>6.</strong> Seja $(v_n)$ uma progressão geométrica.</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;">
+          Sabe-se que $v_5 = 4$ e que $v_8$ = 108
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;">Qual é o valor de $v_6$? </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(A)</strong> 12 </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(B)</strong> 24 </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(C)</strong> 48 </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(D) </strong>60</span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>8. </strong>Em C, conjunto dos números complexos, considere
+          $z_1=2e^{i\frac{\pi}{4}}$ e $z_2=2e^{i\frac{3\pi}{28}}$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >Seja w o número complexo tal que $w=\frac{z_1}{z_2}$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >Sabe-se que, no plano complexo, o afixo do número complexo w é um dos
+          vértices de um polígono regular com centro na origem do referencial e
+          com outro vértice sobre o semieixo real positivo.
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >Qual é o número mínimo de vértices desse polígono?
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"><strong>(A)</strong> 7</span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"> <strong>(B)</strong> 14</span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"> <strong>(C)</strong> 21</span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"> <strong>(D)</strong> 28<br /></span
+        ><br
+      /></span>
+      <span style="font-size: 24px;"
+        >Exame Final Nacional Matemática A 2021 -Fase 2</span
+      >
+    </p>
+
+    <p>
+      <strong>1.1.</strong> Qual das condições seguintes define a superfície
+      esférica de centro no ponto R e que passa no ponto Q?
+    </p>
+    <p><strong>(A)</strong>&nbsp;$(x-5)^2+(y+5)^2+(z-3)^2=59$</p>
+    <p><strong>(B)</strong>&nbsp;$(x-5)^2+(y+5)^2+(z-3)^2=41$</p>
+    <p><strong>(C)</strong>&nbsp;$(x+5)^2+(y-5)^2+(z+3)^2=41$</p>
+    <p><strong>(D)&nbsp;</strong>$(x+5)^2+(y-5)^2+(z+3)^2=59$</p>
+    <p>
+      <strong>3.1.</strong> Com doze raquetes distintas, sendo seis de badmínton
+      e seis de ténis, formam-se, ao acaso, dois conjuntos de seis raquetes cada
+      um.
+    </p>
+    <p>
+      Qual é o valor, arredondado às centésimas, da probabilidade de cada um dos
+      dois conjuntos ficar com três raquetes de badmínton e três raquetes de
+      ténis?
+    </p>
+    <p><strong>(A) </strong>0,22</p>
+    <p><strong>(B)</strong> 0,43</p>
+    <p><strong>(C)</strong> 0,50</p>
+    <p><strong>(D)</strong> 0,87</p>
+    <p>5. Seja g uma função de domínio $\mathbb R$\{2}</p>
+    <p>Sabe-se que:</p>
+    <p>• &nbsp;$\lim_{x\rightarrow 2^-}g(x)=1$</p>
+    <p>•  $\lim_{x\rightarrow 2^+}g(x)=+\infty$</p>
+    <p>Seja $(v_n)$ a sucessão de termo geral $v_n=2-\frac{5}{n+3}$</p>
+    <p>A que é igual $lim g(v_n)$ ?</p>
+    <p><strong>(A)</strong> 0</p>
+    <p><strong>(B)</strong> 1</p>
+    <p><strong>(C)</strong> 2</p>
+    <p><strong>(D)</strong>&nbsp;$+\infty$</p>
+    <p>
+      <strong>7.</strong> Em $\mathbb C$, conjunto dos números complexos,
+      considere $z=2e^{i\frac{3\pi}{5}}$
+    </p>
+    <p>Seja w o número complexo tal que z x w&nbsp;= i</p>
+    <p>Qual dos valores seguintes é um argumento do número complexo w ?</p>
+    <p><strong>(A)</strong>&nbsp;$\frac{19\pi}{10}$</p>
+    <p><strong>(B)</strong>&nbsp;$\frac{2\pi}{5}$</p>
+    <p><strong>(C) $-\frac{2\pi}{5}$</strong></p>
+    <p><strong>(D)</strong>&nbsp;$-\frac{19\pi}{10}$<br /></p>
+    <p>
+      <span style="font-size: 24px;"
+        >Exame Final Nacional Matemática A 2021 -Época Especial</span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>1. </strong>Na Figura 1, está representada, num referencial
+          o.n. Oxyz, a pirâmide regular de base quadrada [ABCD] e vértice E
+        </span></span>
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;">Sabe-se que: </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >•  a base da pirâmide está contida no plano xOz
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >•  o vértice A pertence ao semieixo positivo Oz e o vértice B
+          pertence ao semieixo negativo Ox
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >•  o vértice E tem coordenadas $(-2,6,2)$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >•  o vetor BE tem coordenadas $(-1,6,2)$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;">
+          •  o volume da pirâmide é 20</span
+        ></span
+      >
+    </p>
+    <iframe
+      scrolling="no"
+      title="1.1"
+      src="https://www.geogebra.org/material/iframe/id/bhehxcfm/width/949/height/884/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+      width="949px"
+      height="884px"
+      style="border:0px;"
+    >
+    </iframe>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>1.1.</strong> Seja a o plano perpendicular à reta BE e que
+          passa no ponto de coordenadas (1,0,1)</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          >Qual das equações seguintes é uma equação do plano $\alpha$?
+        </span></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>(A)&nbsp;</strong>$-x+6y+2z=0$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>(B)</strong>&nbsp;$x+6y+2z-3=0$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>(C)</strong>&nbsp;$x-6y-2z+1=0$</span
+        ></span
+      >
+    </p>
+    <p>
+      <span style="font-size: 24px;"
+        ><span style="font-size: 16px;"
+          ><strong>(D)</strong>&nbsp;$2x-y+4z-5=0$</span
+        ><br
+      /></span>
+    </p>
+    <p>
+      <strong>3.</strong> Na Figura 3, está representada, a sombreado, num
+      referencial o.n. xOy, a região do plano cartesiano definida pela condição
+      $0\leq x\leq 10&nbsp;e 0\leq y\leq 10&nbsp;$
+    </p>
+    <p>
+      Considere todos os pontos que pertencem a essa região e cujas coordenadas
+      são números inteiros.
+    </p>
+    <p>Escolhe-se, ao acaso, um desses pontos.</p>
+    <p>
+      Qual é o valor, arredondado às milésimas, da probabilidade de esse ponto
+      pertencer à reta de equação $y=x+7$ ?
+    </p>
+    <p><strong>(A)</strong> 0,025</p>
+    <p><strong>(B)</strong> 0,033</p>
+    <p><strong>(C)</strong> 0,041</p>
+    <p><strong>(D)</strong> 0,057</p>
+    <div
+      id="ggb-element"
+      style="resize:both"
+    ></div>
+   <div style=" display: flex;">
+        <input
+          value="Esconder Toolbar"
+          onclick="ggb.showToolBar(false)"
+          type="button"
+        />
+        <input
+          value="Mostrar Toolbar"
+          onclick="ggb.showToolBar(true)"
+          type="button"
+        />
+
+        <input
+          value="Esconder Input"
+          onclick="ggb.showAlgebraInput(false)"
+          type="button"
+        />
+        <input
+          value="Mostrar Input"
+          onclick="ggb.showAlgebraInput(true)"
+          type="button"
+        />
+      </div>
+ <br />
+    <p><br /></p>
+    <br />
+    <p><br /></p>
+    <script crossorigin="">
+      p5 = new p5()
+      //p5.saveStrings(["aaa"], "test", "html")
+      //https://xdsoft.net/jodit/play.html
+      /*
+      const editor = Jodit.make('#editor', {
+      	buttons: [
+      		'image',
+      		{
+      			iconURL: './images/copy.png',
+      			exec: function (editor) {
+      				if (editor.selection.isCollapsed()) {
+      					editor.execCommand('selectall');
+      				}
+      				editor.execCommand('copy');
+      				Jodit.Alert('Text in your clipboard');
+      			}
+      		}
+      	],
+      	extraButtons: ['info']
+      });
+
+      */
+
+      const editor = Jodit.make("#editor", {
+          "uploader": {
+              "insertImageAsBase64URI": true
+          },
+          "theme": "dark",
+      });
+    </script>
+                                                                    
+     <script src="GeoGebra-init.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
